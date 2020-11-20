@@ -10,10 +10,8 @@ Given('access on the home page') do
     $driver.find_element(:link_text,"Home").click
     sleep (2)
     #test whether slider/arrivals on the page
-    #$test_sliders = $driver.find_elements(:css, ".n2-ss-layers-container")
-    #$number_sliders = $test_sliders.count
-    $test_arrivals = $driver.find_elements(:css, ".woocommerce-LoopProduct-link")
-    $number_arrivals = $test_arrivals.count
+    $test_sliders = $driver.find_elements(:css, ".n2-ss-layers-container")
+    $number_sliders = $test_sliders.count
     #show the counted of sliders/arrivals
     #Kernel.puts $number_sliders
     Kernel.puts $number_arrivals
@@ -22,6 +20,5 @@ Given('access on the home page') do
   Then('sliders number is {int}') do |int|
     # check slider/arrivals variable and slider is counted
     #$number_sliders == int
-    #expect($number_sliders).to eq(int)
-    expect($number_arrivals).to eq(int)
+    expect($number_sliders).to eq(int)
   end
