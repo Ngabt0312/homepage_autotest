@@ -1,4 +1,4 @@
-Feature: sliders on home page
+Feature: sliders
 I want to check slider on the home page,
 So that I have a scenario.
 
