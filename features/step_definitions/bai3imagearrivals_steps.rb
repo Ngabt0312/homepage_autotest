@@ -19,6 +19,7 @@ When('navigating to next page and user can add the book') do
 end
 
 Then('is {int} images') do |int|
+    #verify arrivals
     $driver.manage.timeouts.implicit_wait = 2
     expect($number_arrivals).to eq(int)
 end
