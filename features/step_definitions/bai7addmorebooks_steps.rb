@@ -4,11 +4,12 @@ Then('click add to cart') do
     $quantity_book.clear
     $quantity_book.send_keys 461
     $driver.find_element(:css, ".button.alt").click
-    #alert dialog message
-    $alert_popup = $driver.switch_to.alert
-    $alert_popup.accept
-    result = driver.find_element(id: 'result').text
-    expect(result).to eql('You clicked: Ok')
-    #$result = driver.find_element()
+    #lấy số lượng còn lại ở kho để cho vào chuỗi xác nhận
+    $quantity_stock = $driver.find_element(:css, ".in-stock")
+    #just get the quantity
+    $quantity = $quantity_stock.text.delete("in stock")
+    #verify dialog message
+    $validation_message = $quantity_book.attribute("validationMessage")
+    expect($validation_message).to eq("Value must be less than or equal to "+ $quantity + ".")
     
   end
